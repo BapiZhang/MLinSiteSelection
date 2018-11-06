@@ -66,7 +66,7 @@ row format delimited fields terminated by ',' Lines terminated by '\n' null defi
 
 as
 
-select a.final_grid_id,count(1) as cnt,count(b.brand='华为')/cnt as huawei,count(b.brand='小米')/cnt as xiaomi,count(b.brand='苹果')/cnt as pingguo,count(b.brand='荣耀')/cnt as rongyao
+select a.final_grid_id,count(*) as cnt,count(b.brand='华为')*1.0/count(*) as huawei,count(b.brand='小米')*1.0/count(*) as xiaomi,count(b.brand='苹果')*1.0/count(*) as pingguo,count(b.brand='荣耀')*1.0/count(*) as rongyao
 
 from openlab.stay_poi a
 
@@ -86,7 +86,7 @@ row format delimited fields terminated by ',' Lines terminated by '\n' null defi
 
 as
 
-select a.final_grid_id,count(1) as cnt,count(b.brand='华为')/cnt as huawei,count(b.brand='小米')/cnt as xiaomi,count(b.brand='苹果')/cnt as pingguo,count(b.brand='荣耀')/cnt as rongyao
+select a.final_grid_id,count(*) as cnt,count(b.brand='华为')*1.0/count(*) as huawei,count(b.brand='小米')*1.0/count(*) as xiaomi,count(b.brand='苹果')*1.0/count(*) as pingguo,count(b.brand='荣耀')*1.0/count(*) as rongyao
 
 from openlab.stay_poi a
 
@@ -106,7 +106,7 @@ row format delimited fields terminated by ',' Lines terminated by '\n' null defi
 
 as
 
-select a.final_grid_id,count(1) as cnt,count(b.brand='华为')/cnt as huawei,count(b.brand='小米')/cnt as xiaomi,count(b.brand='苹果')/cnt as pingguo,count(b.brand='荣耀')/cnt as rongyao
+select a.final_grid_id,count(*) as cnt,count(b.brand='华为')*1.0/count(*) as huawei,count(b.brand='小米')*1.0/count(*) as xiaomi,count(b.brand='苹果')*1.0/count(*) as pingguo,count(b.brand='荣耀')*1.0/count(*) as rongyao
 
 from openlab.stay_poi a
 
@@ -186,7 +186,7 @@ row format delimited fields terminated by ',' Lines terminated by '\n' null defi
 
 as
 
-select a.uid,b.ltypec,sum(b.lflux / 1024 / 1024) as lflux
+select a.uid,b.ltypec,sum(b.lflux*1.0 / 1024 / 1024) as lflux
 
 from openlab.stay_poi a
 
@@ -204,7 +204,7 @@ row format delimited fields terminated by ',' Lines terminated by '\n' null defi
 
 as
 
-select a.final_grid_id,sum(case b.ltypec = '01' then b.lflux else 0) as lflux_01,sum(case b.ltypec = '02' then b.lflux else 0) as lflux_02,sum(case b.ltypec = '03' then b.lflux else 0) as lflux_03
+select a.final_grid_id,sum(case b.ltypec = '01' then b.lflux else 0 end) as lflux_01,sum(case b.ltypec = '02' then b.lflux else 0 end) as lflux_02,sum(case b.ltypec = '03' then b.lflux else 0 end) as lflux_03
 
 from openlab.stay_poi a
 
@@ -224,7 +224,7 @@ row format delimited fields terminated by ',' Lines terminated by '\n' null defi
 
 as
 
-select a.final_grid_id,sum(case b.ltypec = '01' then b.lflux else 0) as lflux_01,sum(case b.ltypec = '02' then b.lflux else 0) as lflux_02,sum(case b.ltypec = '03' then b.lflux else 0) as lflux_03
+select a.final_grid_id,sum(case b.ltypec = '01' then b.lflux else 0 end) as lflux_01,sum(case b.ltypec = '02' then b.lflux else 0 end) as lflux_02,sum(case b.ltypec = '03' then b.lflux else 0 end) as lflux_03
 
 from openlab.stay_poi a
 
@@ -244,7 +244,7 @@ row format delimited fields terminated by ',' Lines terminated by '\n' null defi
 
 as
 
-select a.final_grid_id,sum(case b.ltypec = '01' then b.lflux else 0) as lflux_01,sum(case b.ltypec = '02' then b.lflux else 0) as lflux_02,sum(case b.ltypec = '03' then b.lflux else 0) as lflux_03
+select a.final_grid_id,sum(case b.ltypec = '01' then b.lflux else 0 end) as lflux_01,sum(case b.ltypec = '02' then b.lflux else 0 end) as lflux_02,sum(case b.ltypec = '03' then b.lflux else 0 end) as lflux_03
 
 from openlab.stay_poi a
 
